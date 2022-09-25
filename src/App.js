@@ -3,11 +3,21 @@ import Categories from "./components/Categories";
 import Header from "./components/Header";
 import PizzaBlock from "./components/PizzaBlock";
 import Sort from "./components/Sort";
+
 import './scss/app.scss'
 
-import pizzas from './assets/pizzas.json'
 
 function App() {
+  const [items, setItems] = React.useState([])
+
+  React.useEffect(() => {
+    fetch('https://6330443df5fda801f8ddb969.mockapi.io/items')
+      .then((res) => res.json())
+      .then((arr) => {
+        setItems(arr)
+      })
+  }, [])
+
   return (
     <div className="wrapper">
       <Header />
@@ -19,7 +29,7 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            {pizzas.map((obj, i) => (
+            {items.map((obj, i) => (
               <PizzaBlock
                 key={i}
                 title={obj.title}
