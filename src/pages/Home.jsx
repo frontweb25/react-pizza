@@ -9,6 +9,7 @@ const Home = () => {
     const [items, setItems] = React.useState([])
     const [isLoadin, seIsLoading] = React.useState(true)
     const [categoryId, setCategoryId] = React.useState(0)
+    const [orderType, setOrderType] = React.useState("asc")
     const [sortType, setSortType] = React.useState({
         name: 'популярности',
         sortProperty: 'rating'
@@ -16,10 +17,10 @@ const Home = () => {
     React.useEffect(() => {
         seIsLoading(true)
 
-        const order = sortType.sortProperty.includes('-') ? 'asc' : 'desc';
         const sortBy = sortType.sortProperty.replace('-', '');
         const category = categoryId > 0 ? `category=${categoryId}` : '';
-        fetch(`https://6330443df5fda801f8ddb969.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`)
+
+        fetch(`https://6330443df5fda801f8ddb969.mockapi.io/items?${category}&sortBy=${sortBy}&order=${orderType}`)
             .then((res) => res.json())
             .then((arr) => {
                 setItems(arr)
@@ -31,7 +32,7 @@ const Home = () => {
         <div className="container">
             <div className="content__top">
                 <Categories value={categoryId} onClickCategory={setCategoryId} />
-                <Sort value={sortType} onClickSort={setSortType} />
+                <Sort value={sortType} onClickSort={setSortType} sortBtnBy={setOrderType} />
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">

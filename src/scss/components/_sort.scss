@@ -56,4 +56,24 @@
       }
     }
   }
+  .btn-sort{
+
+    button {
+      text-align: center;
+
+      padding: 5px;
+      border: none;
+      margin-bottom: 5px;
+      border-radius: 30px;
+      margin-right: 5px;
+      cursor: pointer;
+      background-color: white;
+      color: #fe5f1e;
+
+      &:hover {
+        background-color: #fe5f1e;
+        color: white;
+      }
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Sort({ value, onClickSort }) {
+function Sort({ value, onClickSort, sortBtnBy }) {
 
     const [open, setOpen] = React.useState(false)
     const list = [
@@ -40,6 +40,10 @@ function Sort({ value, onClickSort }) {
                             key={i}
                             onClick={() => onClickListItem(obj)}
                             className={value.sortProperty === obj.sortProperty ? 'active' : ''}>{obj.name}
+                            <div className='btn-sort'>
+                                <button onClick={() => sortBtnBy('asc')}>по возрастанию</button>
+                                <button onClick={() => sortBtnBy('desc')}>по убыванию</button>
+                            </div>
                         </li>)}
                 </ul>
             </div>)}
