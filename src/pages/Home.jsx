@@ -9,7 +9,7 @@ const Home = () => {
     const [items, setItems] = React.useState([])
     const [isLoadin, seIsLoading] = React.useState(true)
     const [categoryId, setCategoryId] = React.useState(0)
-    const [orderType, setOrderType] = React.useState("asc")
+    const [orderType, setOrderType] = React.useState("desc")
     const [sortType, setSortType] = React.useState({
         name: 'популярности',
         sortProperty: 'rating'

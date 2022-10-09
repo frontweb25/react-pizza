@@ -13,9 +13,13 @@ import './scss/app.scss'
 
 
 function App() {
+
+  const [searchValue, setSearchValue] = React.useState('')
+  console.log(searchValue)
+
   return (
     <div className="wrapper">
-      <Header />
+      <Header searchValue={searchValue} setSearchValue={setSearchValue} />
       <div className="content">
 
         <Routes>

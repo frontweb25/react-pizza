@@ -41,8 +41,8 @@ function Sort({ value, onClickSort, sortBtnBy }) {
                             onClick={() => onClickListItem(obj)}
                             className={value.sortProperty === obj.sortProperty ? 'active' : ''}>{obj.name}
                             <div className='btn-sort'>
-                                <button onClick={() => sortBtnBy('asc')}>по возрастанию</button>
-                                <button onClick={() => sortBtnBy('desc')}>по убыванию</button>
+                                <button onClick={() => sortBtnBy('desc')}>по возрастанию</button>
+                                <button onClick={() => sortBtnBy('asc')}>по убыванию</button>
                             </div>
                         </li>)}
                 </ul>
